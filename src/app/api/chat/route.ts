@@ -1,13 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import OpenAI from "@/clients/gpt.client";
+// import OpenAI from "@/clients/gpt.client";
+import OpenAI from "openai";
 
 export async function POST(req: NextRequest) {
+  const openai = new OpenAI({
+    apiKey:
+      "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",
+    organization: "org-Uhdg5yBrfAN3k1NHFm0aDrWl",
+
+    project: "proj_sRkfoCxb21QzvKYKSuevjhYn",
+  });
+
   const body = await req.json();
 
   console.log(body.messages);
 
   try {
-    const response = await OpenAI.chat.completions.create({
+    const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-0125",
 
       store: true,
