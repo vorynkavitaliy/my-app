@@ -1,11 +1,10 @@
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey:
-    "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",
-  organization: "org-Uhdg5yBrfAN3k1NHFm0aDrWl",
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+  organization: process.env.NEXT_PUBLIC_ORIGIN,
   dangerouslyAllowBrowser: true,
-  project: "proj_sRkfoCxb21QzvKYKSuevjhYn",
+  project: process.env.NEXT_PUBLIC_PROJECT_ID,
 });
 
 export default openai;
