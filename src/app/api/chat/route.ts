@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
 
   console.log(body.messages);
+  console.log(openai);
 
   try {
     const response = await openai.chat.completions.create({
